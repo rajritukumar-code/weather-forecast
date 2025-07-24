@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link href="./output.css" rel="stylesheet">
-     <script src="index.js" defer></script>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wather_App</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-input">
+        <div class="input-group">
+          <input
+            type="text"
+            id="userLocation"
+            placeholder="Search for places..."
+          />
+
+          <select class="converter" id="converter">
+            <option>&deg;C</option>
+            <option>&deg;F</option>
+          </select>
+          <i class="fa fa-search"></i>
+        </div>
+        <div class="wearher_icon"></div>
+        <h2 class="temperature"></h2>
+        <div class="feelsLick"></div>
+        <div class="description"></div>
+        <hr />
+        <div class="data"></div>
+        <div class="city"></div>
+      </div>
+    </div>
+  </body>
 </html>
