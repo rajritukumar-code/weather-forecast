@@ -1,2 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import "tailwindcss";
+@theme {
+  --font-display: "poppins", "sans-serif";
+}
+@layer base {
+  body {
+    font-family: var(--font-display);
+    height: 100vh;
+  }
+}
