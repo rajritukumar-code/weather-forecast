@@ -29,12 +29,12 @@
             <option class="rounded-[6px]">&deg;F</option>
           </select>
           <i
-            class="fa fa-search absolute right-[15px] text-[#909090] cursor-pointer text-[22px]"
+            class="fa fa-search absolute right-[15px] text-[#909090] cursor-pointer text-[22px]" onclick="findUserLocation()" 
           ></i>
         </div>
-        <div class="wearher_icon"></div>
+        <div class="wearher_icon !bg-position-[50%] !bg-no-repeat bg-contain block h-[25%] my-8 mx-auto "></div>
         <h2 class="temperature"></h2>
-        <div class="feelsLick"></div>
+        <div class="feelsLike"></div>
         <div class="description"></div>
         <hr />
         <div class="data"></div>
@@ -56,19 +56,25 @@
         <div
           class="highlighs grid grid-cols-[repeat(3,350px)] grid-flow-row gap-y-4 gap-x-[10px]"
         >
-          <div class="humidity h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="humidity h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             Humidity
             <i class="fa-solid fa-water text-[45px]"></i>
             <h1 id="HValue"></h1>
           </div>
 
-          <div class="wind-speed  h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="wind-speed h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             wind Speed
             <i class="fa-solid fa-wind text-[45px]"></i>
             <h1 id="WValue"></h1>
           </div>
 
-          <div class="sun  h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="sun h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             <span class="items-center flex gap-2.5">
               <i class="fa-solid fa-sun text-[45px]"></i>
               <p><span id="SRValue"></span>sunrise</p>
@@ -79,19 +85,25 @@
             </span>
           </div>
 
-          <div class="clouds  h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="clouds h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             Clouds
             <i class="fa-solid fa-cloud text-[45px]"></i>
             <h1 id="CValue"></h1>
           </div>
 
-          <div class="uv-index  h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="uv-index h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             UV Index
             <i class="fa-solid fa-bacon text-[45px]"></i>
             <h1 id="UVValue"></h1>
           </div>
 
-          <div class="pressure  h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4">
+          <div
+            class="pressure h-[200px] grid items-center justify-center text-center bg-[#78c1f3] rounded-[20px] p-4"
+          >
             Pressure
             <i class="fa-solid fa-volcano text-[45px]"></i>
             <h1 id="PValue"></h1>
