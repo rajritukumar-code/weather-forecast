@@ -4,7 +4,7 @@ const weatherIcon=document.querySelector(".wearher_icon");
 const temperature=document.querySelector(".temperature");
 const feelsLike=document.querySelector(".feelsLike");
 const description=document.querySelector(".description");
-const data=document.querySelector(".data");
+const date=document.querySelector(".date");
 const city=document.querySelector(".city");
 
 const Hvalue=document.getElementById("HValue");
@@ -23,6 +23,7 @@ WEATHER_API_ENDPOINT=`https://api.openweathermap.org/data/2.5/weather?appid=cffb
 WEATHER_DATA_ENDPOINT=`https://api.openweathermap.org/data/3.0/onecall?appid=cffbc6617b68b781354362ee2b892124&exclude=minutely&units=metric&`;
 
 function findUserLocation(){
+    Forecast.innerHTML="";
     fetch(WEATHER_API_ENDPOINT+userLocation.value)
     .then((response)=>response.json())
     .then((data)=>{
@@ -41,16 +42,76 @@ function findUserLocation(){
             temperature.innerHTML=data.current.temp;
             feelsLike.innerHTML="Feels like "+ data.current.feels_like;
             description.innerHTML=`<i class="fa-brands fa-cloudversify"></i> &nbsp;`+data.current.weather[0].description;
+
+            const options = {
+                weekday:"long",
+                month:"long",
+                day:"numeric",
+                hour:"numeric",
+                minute:"numeric",
+                hour12:true,
+            }
+
+             date.innerHTML=getLongFormateDataTime(
+                data.current.dt,
+                data.timezone_offset,
+                options);
              
             Hvalue.innerHTML=Math.round(data.current.humidity)+"<span>%<span/>";
             Wvalue.innerHTML=Math.round(data.current.wind_speed)+"<span>m/s<span/>";
-            SRValue.innerHTML="";
-            SSValue.innerHTML="";
+
+            const options1 = { 
+                 hour: "numeric",
+                 minute: "numeric", 
+                 hour12: true,
+                 };
+
+            SRValue.innerHTML=getLongFormateDataTime(
+                data.current.sunrise,
+                data.timezone_offset,
+                options1);
+
+            SSValue.innerHTML=getLongFormateDataTime(
+                data.current.sunset,
+                data.timezone_offset,
+                options1);
 
             CValue.innerHTML=Math.round(data.current.clouds)+"<span>%<span/>";
             UVValue.innerHTML=Math.round(data.current.uvi);
             PValue.innerHTML=Math.round(data.current.pressure)+"<span>hPa<span/>";
+
+            console.log(data.daily);
+            data.daily.forEach((weather)=>{
+                let div=document.createElement("div");
+                const options={
+                    weekday:"long",
+                    month:"long",
+                    day:"numeric",
+                }
+                let daily=getLongFormateDataTime(weather.dt,0,options).split(" at ")
+                div.innerHTML= daily[0];
+                div.innerHTML+=`<img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"/>`;
+                div.innerHTML+=`<p class="forecast-disc>${weather.weather[0].discription}</p>"`;
+                div.style=`height:200px;
+                display:grid;
+                align-items:center;
+                justify-items:center;
+                text-align:center;
+                background-color:#78c1f3;
+                border-radius:20px;
+                padding:1rem;`
+                Forecast.append(div);
+                
+            })
         })
         
     });
+}
+function formatUnixTime(dtValue, offSet, options={}) {
+    const date = new Date((dtValue + offSet)*1000);
+    return date.toLocaleTimeString([], { timeZone: "UTC", ...options });
+}
+
+function getLongFormateDataTime(dtValue, offSet, options){
+    return formatUnixTime(dtValue, offSet, options)
 }

@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container flex items-center">
-      <div class="weather-input w-[40%] fixed inset-0 bg-[#78c1f3] px-4 py-10">
+      <div class="weather-input w-[25%] fixed inset-0 bg-[#78c1f3] px-4 py-10">
         <div class="input-group relative flex items-center mx-8 my-0">
           <input
             class="bg-[#f8f8f8] capitalize p-4 text-[15px] rounded-[6px] w-full outline-none"
@@ -33,16 +33,16 @@
           ></i>
         </div>
         <div class="wearher_icon !bg-position-[50%] !bg-no-repeat bg-contain block h-[25%] my-8 mx-auto "></div>
-        <h2 class="temperature"></h2>
-        <div class="feelsLike"></div>
-        <div class="description"></div>
+        <h2 class="temperature text-[5rem] text-center flex font-light"></h2>
+        <div class="feelsLike py-[10px] px-0"></div>
+        <div class="description py-[10px] px-0"></div>
         <hr />
-        <div class="data"></div>
-        <div class="city"></div>
+        <div class="date py-[10px] px-0"></div>
+        <div class="city py-[10px] px-0"></div>
       </div>
 
       <div
-        class="weather-output w-[60%] fixed inset-0 ml-[40%] p-8 bg-[#f6f6f6] overflow-auto"
+        class="weather-output w-[75%] fixed inset-0 ml-[25%] p-8 bg-[#f6f6f6] overflow-auto"
       >
         <h2 class="heading">Today's Highlights</h2>
         <!-- <div class="highligh">
@@ -77,11 +77,11 @@
           >
             <span class="items-center flex gap-2.5">
               <i class="fa-solid fa-sun text-[45px]"></i>
-              <p><span id="SRValue"></span>sunrise</p>
+              <p><span id="SRValue"></span> Sunrise</p>
             </span>
             <span class="items-center flex gap-2.5">
               <i class="fa-regular fa-sun text-[45px]"></i>
-              <p><span id="SSValue"></span>sunset</p>
+              <p><span id="SSValue"></span> Sunset</p>
             </span>
           </div>
 
@@ -111,7 +111,7 @@
         </div>
         <br />
         <h2 class="heading">This Week</h2>
-        <div class="forecast"></div>
+        <div class="forecast grid grid-cols-[repeat(4,260px)] grid-flow-row gap-y-4  gap-x-2.5"></div>
       </div>
     </div>
   </body>
